@@ -1,11 +1,12 @@
 
 .techfont{
-  font-family: 'Russo One',sans-serif;
+  font-family: "Rubik";
   font-size: 1.5em;
   margin-bottom: 10px;
 }
 
 .bigbrand{
+  font-family: "Rubik";
   font-size: 1.5em;
 }
 .centerstage{
@@ -14,30 +15,38 @@
 }
 
 .postdate{
+  font-family: "Rubik";
   text-align: center;
 }
 
 .posttitle{
-  font-family: 'Russo One',sans-serif;
+  font-family: "Rubik";
   font-size: 3em;
   text-align: center;
 }
 
 .postcontent{
-  font-family: "Montserrate";
+  font-family: "Rubik";
   font-size: 1.5em;
+}
+.about{
+  font-family: "Rubik";
+  font-size: 1.5em;
+  color: white;  
 }
 
 .btn-comment{
+  font-family: "Rubik";
   position: absolute;
   right: 0px;
 }
 body, html {
+  font-family: "Rubik";
     height: 100%;
 }
 .bg {
     /* The image used */
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+    background-image: url("/static/images/bg.jpg");
 
     /* Full height */
     height: 100%;
@@ -46,4 +55,4 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}      
+}
