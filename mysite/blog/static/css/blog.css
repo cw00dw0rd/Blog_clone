@@ -1,3 +1,4 @@
+
 .techfont{
   font-family: 'Russo One',sans-serif;
   font-size: 1.5em;
@@ -31,40 +32,18 @@
   position: absolute;
   right: 0px;
 }
-
-.loader {
-  filter:hue-rotate(0deg);
-  color:linear-gradient(45deg,#0f8,#08f);
-  animation:hue 10000ms infinite linear;
-
+body, html {
+    height: 100%;
 }
+.bg {
+    /* The image used */
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
 
-@keyframes spinify {
-  0% {
-    transform: translate(0px,0px);
+    /* Full height */
+    height: 100%;
 
-  }
-  33% {
-    transform: translate(0px,24px);
-    border-radius:100%;
-    width:10px;
-    height:10px;
-
-  }
-   66% {
-    transform:translate(0px,-16px);
-  }
-
-   88% {
-    transform:translate(0px,4px);
-
-  }
-  100% {
-    transform:translate(0px,0px);
-  }
-}
-@keyframes hue{
-  0%{filter: hue-rotate(0deg);}
-  100%{filter:hue-rotate(360deg);}
-
-}
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}      
