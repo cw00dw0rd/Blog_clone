@@ -3,11 +3,13 @@
   font-family: "Rubik";
   font-size: 1.5em;
   margin-bottom: 10px;
+
+
 }
 
 .bigbrand{
   font-family: "Rubik";
-  font-size: 1.5em;
+  font-size: 1.75em;
 }
 .centerstage{
   margin-left: auto;
@@ -32,7 +34,7 @@
 .about{
   font-family: "Rubik";
   font-size: 1.5em;
-  color: white;  
+  color: black;
 }
 
 .btn-comment{
@@ -43,6 +45,7 @@
 body, html {
   font-family: "Rubik";
     height: 100%;
+
 }
 .bg {
     /* The image used */
@@ -56,3 +59,7 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+li {
+      float: none;
+      display: inline-block;
+    }

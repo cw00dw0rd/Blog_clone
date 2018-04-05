@@ -21,12 +21,15 @@
   </head>
   <body>
     <nav class="navbar navbar-default techfont custom-navbar">
+      <!-- <ul class="nav navbar-nav">
+      </ul> -->
       <div class="container">
         <ul class="nav navbar-nav">
-        <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">Newfangled Coffee</a></li>
+        <!-- <li><a class="navbar-brand bigbrand" href="{% url 'about' %}">Newfangled Coffee</a></li> -->
+        <li><a class="navbar-brand bigbrand" href="{% url 'about' %}">Newfangled Coffee</a></li>
+        <li> <a href="{% url 'post_list' %}">Posts</a></li>
         <li> <a href="https://www.github.com">Github</a></li>
         <li> <a href="https://www.linkedin.com">LinkedIn</a></li>
-        <li> <a href="{% url 'about' %}">About</a></li>
       </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -52,7 +55,7 @@
 
     <div class="content container">
       <div class="row">
-        <div class="col-md-8">
+        <div>
           <div class="blog_posts">
             {% block content %}
             {% endblock %}
