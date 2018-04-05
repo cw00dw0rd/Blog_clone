@@ -1,12 +1,7 @@
-
-.techfont{
+body, html {
   font-family: "Rubik";
-  font-size: 1.5em;
-  margin-bottom: 10px;
-
-
+  height: 100%;
 }
-
 .bigbrand{
   font-family: "Rubik";
   font-size: 1.75em;
@@ -15,21 +10,21 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-.postdate{
-  font-family: "Rubik";
-  text-align: center;
-}
-
 .posttitle{
   font-family: "Rubik";
   font-size: 3em;
   text-align: center;
+  color: red;
 }
-
+.postdate{
+  font-family: "Rubik";
+  text-align: center;
+  color: red;
+}
 .postcontent{
   font-family: "Rubik";
-  font-size: 1.5em;
+  text-align: center;
+  color: blue;
 }
 .about{
   font-family: "Rubik";
@@ -39,15 +34,9 @@
 
 .btn-comment{
   font-family: "Rubik";
-  position: absolute;
-  right: 0px;
+  position: Center;
 }
-body, html {
-  font-family: "Rubik";
-    height: 100%;
-
-}
-.bg {
+body {
     /* The image used */
     background-image: url("/static/images/bg.jpg");
 
@@ -59,7 +48,5 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }
-li {
-      float: none;
-      display: inline-block;
-    }
+p {
+}
