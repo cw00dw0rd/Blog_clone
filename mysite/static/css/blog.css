@@ -1,0 +1,52 @@
+body, html {
+  font-family: "Rubik";
+  height: 100%;
+}
+.bigbrand{
+  font-family: "Rubik";
+  font-size: 1.75em;
+}
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+.posttitle{
+  font-family: "Rubik";
+  font-size: 3em;
+  text-align: center;
+  color: red;
+}
+.postdate{
+  font-family: "Rubik";
+  text-align: center;
+  color: red;
+}
+.postcontent{
+  font-family: "Rubik";
+  text-align: center;
+  color: blue;
+}
+.about{
+  font-family: "Rubik";
+  font-size: 1.5em;
+  color: black;
+}
+
+.btn-comment{
+  font-family: "Rubik";
+  position: Center;
+}
+body {
+    /* The image used */
+    background-image: url("/static/images/bg.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+p {
+}
