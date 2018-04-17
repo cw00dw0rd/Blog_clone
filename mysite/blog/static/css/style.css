@@ -177,3 +177,11 @@ html, body,
   margin-bottom: 10px;
   /* Added */
 }
+#CommentFormCard {
+  margin: 0 auto;
+  /* Added */
+  float: none;
+  /* Added */
+  margin-bottom: 10px;
+  /* Added */
+}

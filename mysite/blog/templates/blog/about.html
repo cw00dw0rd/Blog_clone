@@ -1,3 +1,12 @@
+<!-- PreLoad main landing background image -->
+<script language = "JavaScript">
+function preloader()
+{
+heavyImage = new Image();
+heavyImage.src = "/static/images/bg.jpg";
+}
+</script>
+<body onLoad="javascript:preloader()">
 <!-- Mask -->
 <div id="intro" class="view animated fadeIn">
     <!-- Sets the background image to match the full screen on the landing page -->
