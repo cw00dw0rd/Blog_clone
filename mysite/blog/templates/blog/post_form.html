@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div id=postFormCard class="card col-md-6 offset-md-3 p-3 mt-3">
+  <div class="card-body wider reverse my-4">
+
+  <h1 class="h1 text-center py-4">New Post</h1>
+
+  <form enctype="multipart/form-data" class="post-form" method="post"data-ajax="false">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-brown">Save</button>
+  </form>
+
+
+  <script>var editor = new MediumEditor('.editable');</script>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-md-6 offset-md-3">
+
+<!--Card-->
+<div class="card card-cascade wider reverse my-4 animated slideInLeft">
+
+    <!--Card image-->
+    <div class="view overlay">
+    <img class="img-fluid" src="{% static 'images\FoundationValrico.jpg' %}"
+    alt="Card image cap">
+     </div>
+
+    <!--Card content-->
+    <div class="card-body">
+    <h2>Sign up</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="fieldWrapper md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+          {{ form.email.errors }}
+          <!-- <input type="email" id="materialFormLoginEmailEx" class="form-control"> -->
+          <label for="{{ form.email.id_for_label }}" style='display:inline-block;margin-top:-5px;' id="materialFormLoginEmailEx">Email:</label>
+          {{ form.email }}
+        </div>
+        <div class="fieldWrapper md-form">
+
+    <i class="fa fa-user prefix grey-text"></i>
+    {{ form.first_name.errors }}
+    <!-- <input type="email" id="materialFormLoginEmailEx" class="form-control"> -->
+    <label for="{{ form.first_name.id_for_label }}"style='display:inline-block;margin-top:-5px;'>First Name:</label>
+
+    {{ form.first_name }}
+    </div>
+
+<!-- Material Last Name -->
+<div class="fieldWrapper md-form">
+
+<i class="fa fa-user prefix grey-text"></i>
+{{ form.last_name.errors }}
+<!-- <input type="email" id="materialFormLoginEmailEx" class="form-control"> -->
+<label for="{{ form.first_name.id_for_label }}"style='display:inline-block;margin-top:-5px;'>Last Name:</label>
+{{ form.last_name }}
+</div>
+
+<!-- Material input password -->
+<div class="fieldWrapper md-form">
+
+    <i class="fa fa-lock prefix grey-text"></i>
+    {{ form.password1.errors }}
+    <label for="{{ form.password1.id_for_label }}"style='display:inline-block;margin-top:-5px;'>Password:</label>
+    {{ form.password1 }}
+</div>
+<!-- Material input confirm password -->
+<div class="fieldWrapper md-form">
+
+    <i class="fa fa-lock prefix grey-text"></i>
+    {{ form.password2.errors }}
+    <!-- <input type="email" id="materialFormLoginEmailEx" class="form-control"> -->
+    <label for="{{ form.password2.id_for_label }}"style='display:inline-block;margin-top:-5px;'>Confirm password:</label>
+    {{ form.password2 }}
+</div>
+<div class="text-center mt-4">
+
+<input type="submit" value="Sign Up" class="btn btn-brown">
+</div>
+
+</div>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- </div> -->
+<!--/.Card-->
+{% endblock %}
