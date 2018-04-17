@@ -44,16 +44,20 @@
 <!-- Grabs both Password1 and Password2 as required -->
 <div class="fieldWrapper md-form">
     <i class="fa fa-lock prefix grey-text"></i>
-    {{ form.password1.errors }}
     <label for="{{ form.password1.id_for_label }}"style='display:inline-block;margin-top:-5px;'>Password:</label>
     {{ form.password1 }}
+    {{ form.password1.errors }}
+    <br>
+    <br>
 </div>
 <!-- Material input confirm password -->
 <div class="fieldWrapper md-form">
     <i class="fa fa-lock prefix grey-text"></i>
-    {{ form.password2.errors }}
     <label for="{{ form.password2.id_for_label }}"style='display:inline-block;margin-top:-5px;'>Confirm password:</label>
     {{ form.password2 }}
+    {{ form.password2.errors }}
+    <br>
+    <br>
 </div>
 <div class="text-center mt-4">
 <input type="submit" value="Sign Up" class="btn btn-brown">

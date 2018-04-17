@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<div class="card card-cascad col-lg-4 col-md-8 col-sm-10 mt-5" id="CommentFormCard">
+
 <!-- Allows user to leave comment for post, only text is editable -->
   <h1>New Comment</h1>
   <form class="post-form" method="post">
@@ -9,4 +11,5 @@
   </form>
 <!-- Medium Editor to allow from some limited formatting for user -->
   <script>var editor = new MediumEditor('.editable');</script>
+</div>
 {% endblock %}
