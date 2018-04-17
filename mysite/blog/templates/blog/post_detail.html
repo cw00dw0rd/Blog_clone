@@ -1,22 +1,29 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<div class="postDetail card col-lg-4 col-md-12 mt-2">
 
   <h1 class="posttitle loader">{{post.title}}</h1>
   {% if post.published_date %}
     <div class="date postdate">
-      {{ post.published_date}}
+      {{ post.published_date|date:"N d Y"}}
     </div>
+    <hr>
   {% else %}
     <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
   {% endif %}
 <div class="postcontent">
-  <p>{{post.text|safe|linebreaksbr}}</p>
-
-  <img src="/static/media/{{post.image}}">
+  <div class="detailText">
+    <p>{{post.text|safe|linebreaksbr}}</p>
+  </div>
+  <div class="detailImage p-2">
+    <img src="/static/media/{{post.image}}">
+  </div>
+  <div class="expandImage" align="right">
+    <a href="/static/media/{{post.image}}"><i class="fa fa-expand" aria-hidden="true"></i></a>
+  </div>
 </div>
 
-
-
+</div>
   {% if user.is_staff %}
   <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-outline-warning waves-effect btn-md" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
   <a href="{% url 'post_remove' pk=post.pk %}" class="btn btn-outline-warning waves-effect btn-md" role="button"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
@@ -41,7 +48,7 @@
 
       <p>{{comment.text|safe|linebreaks}}</p>
       <p>Posted By: {{comment.author}}</p>
-      {{comment.created_date }}
+      {{comment.created_date|date:"N d Y" }}
     {% endif %}
     {% empty %}
     <p>No Comments</p>

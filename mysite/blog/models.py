@@ -7,9 +7,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-
-
-
+# Override the UserManager to be able to create customer user Model
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
 
@@ -43,7 +41,7 @@ class UserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
-
+# Customer user model with primary goal to be to have login use Email for auth token
 class User(AbstractUser):
     """User model."""
 
@@ -55,7 +53,7 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-
+# Post model to contain all post elements, currently staff only
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=200)
@@ -84,6 +82,7 @@ class Post(models.Model):
         ("can_post", "Can create posts"),
         )
 
+# Model that contains comments left by users for posts
 class Comment(models.Model):
 
     post = models.ForeignKey('blog.Post',related_name='comments')

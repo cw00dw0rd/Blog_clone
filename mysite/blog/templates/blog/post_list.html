@@ -22,7 +22,7 @@ $(document).ready(function() {
       // Store hash
       var hash = this.hash;
 
-      // Hide navbar for same page transition
+      // Hide navbar for same page transition as it was not collapsing on its own
       $("#mainNavBar").click(function() {
         $(".collapse").collapse('toggle');
       });
@@ -41,47 +41,44 @@ $(document).ready(function() {
 });
 </script>
 
-
+<!-- Loads the about page first to maintain the materail scroll-over option -->
 {% include './about.html' %}
-<div id="two">
 
+<div id="two">
   <main class="mt-5">
+    <!-- Centerstage begins the align of below items -->
     <div class="centerstage container">
       <!-- Divider line -->
       <hr class="my-5">
       <!-- Divider line -->
       <section id="picPosts" class="text-center">
-
+        <!-- When navigating back to the recent posts section animation fades in from bottom -->
         <div class="row animated fadeInUpBig">
+          <!-- Looks for any posts that exist -->
           {% for post in post_list %}
-
+          <!-- Loads the most recent 6 posts -->
           {% if forloop.counter <= 6 %}
+          <!-- Row sizing for differnt displays and sizes -->
           <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-
-            <div class=" pics overlay z-depth-1-half">
-              <h1> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </h1>
-              <a href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/{{post.image}}" class="img-fluid" alt="Overroasted Image" id="listPcs">
+            <div class="pics overlay z-depth-1-half">
+              <p class="h3 listHeading"> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </p>
+              <a id="listPics" href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/{{post.image}}" class="img-fluid" alt="Overroasted Image">
               </a>
               <div class="date">
-                <p>Published on: {{post.published_date|date:"D M Y"}}</p>
+                <!-- Formatted to show date and not time -->
+                <p>Published on: {{post.published_date|date:"N d Y"}}</p>
               </div>
+              <!-- Displays any comments previously left by users -->
               <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comment.count }}</a>
-
             </div>
         </div>
         {% endif %}
         {% endfor %}
-
     </div>
-    <button type="button" class="btn btn-outline-blue waves-effect">Read more <i class="fa fa-book ml-2"></i> </button>
-
+    <!-- Link to All Posts page -->
+    <a class="btn btn-outline-brown waves-effect" href="{% url 'all_posts' %}">More Posts<i class="fa fa-book ml-2"></i><a/>
     </section>
-
-
 </div>
 </main>
-
 </div>
-
-
 {% endblock %}

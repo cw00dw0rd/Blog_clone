@@ -26,13 +26,15 @@
 
 
         <!-- Dropdown -->
+        <!-- Determines if user is already signed in -->
         {% if user.is_authenticated %}
-
+                    <!-- Only displays logout option if signed in -->
                   <li class="nav-item">
                       <a class="nav-link" href="{% url 'logout' %}">Log Out
                       </a>
                   </li>
       {% else %}
+      <!-- login and signup options display if not already logged in -->
         <li class="nav-item">
           <a class="nav-link"  href="{% url 'login' %}">Log In
           </a>
@@ -42,6 +44,7 @@
           </a>
         </li>
         {% endif %}
+        <!-- Staff options allow for new post creation as well as seeing drafts that have not been published -->
       {% if user.is_staff %}
                   <li class="nav-item">
                       <a class="nav-link" href="{% url 'post_new' %}">New Post
@@ -56,11 +59,6 @@
     </ul>
     <!-- Links -->
 
-    <form class="form-inline">
-        <div class="md-form mt-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        </div>
-    </form>
 </div>
 <!-- Collapsible content -->
 
