@@ -15,41 +15,47 @@ from django.views.generic import (TemplateView,ListView,
                                     DetailView,CreateView,
                                     UpdateView,DeleteView,)
 
-
-# Create your views here.
-
+# View for about landing page
 class AboutView(TemplateView):
     template_name = 'about.html'
 
+# List view for post list on main landing page shows most recent 6 posts
 class PostListView(ListView):
     model = Post
 
     def get_queryset(self):
         return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
+# View that displays all posts not just he most recent
+class AllPostListView(ListView):
+    model = Post
+    template_name = "all_posts.html"
+
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+
+
 class PostDetailView(DetailView):
     model = Post
 
-# @staff_member_required
+
 class CreatePostView(LoginRequiredMixin,CreateView):
     login_url = '/login/'
     redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model = Post
 
-# @staff_member_required
 class PostUpdateView(LoginRequiredMixin,UpdateView):
     login_url = '/login/'
     redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model = Post
 
-# @staff_member_required
 class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
 
-# @login_required
 class DraftlistView(LoginRequiredMixin,ListView):
     login_url = '/login/'
     redirect_field_name = 'post_draft_list.html'
@@ -76,16 +82,6 @@ def post_publish(request,pk):
     post = get_object_or_404(Post,pk=pk)
     post.publish()
     return redirect('post_detail',pk=pk)
-
-# def upload_pic(request):
-#     if request.method == 'POST':
-#         form = PostForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             m = Post.objects.get(pk=pk)
-#             m.model_pic = form.cleaned_data['image']
-#             m.save()
-#             m.publish()
-#             return redirect('post_detail',pk=pk)
 
 @login_required
 def add_comment_to_post(request, pk):

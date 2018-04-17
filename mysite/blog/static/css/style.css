@@ -4,9 +4,6 @@ body, html {
   font-family: "Rubik";
   height: 100%;
 }
-
-}
-
 .bigbrand {
   font-family: "Rubik";
   font-size: 1.75em;
@@ -21,19 +18,18 @@ body, html {
   font-family: "Rubik";
   font-size: 3em;
   text-align: center;
-  color: red;
 }
 
 .postdate {
   font-family: "Rubik";
+  font-size: .8em;
   text-align: center;
-  color: red;
+  color: gray;
 }
 
 .postcontent {
   font-family: "Rubik";
   text-align: center;
-  color: blue;
 }
 
 .about {
@@ -78,16 +74,12 @@ html, body,
   height: auto;
 }
 
-.lightpic {
-  cursor: pointer;
-}
-
 @media only screen and (min-width: 370px) {
   #intro .aboutBackText {
     font-size: .9em;
   }
   #intro .aboutBackText h4 {
-    font-size: .9em;
+    font-size: 2em;
   }
 }
 
@@ -161,7 +153,22 @@ html, body,
   color: white;
   cursor: pointer;
 }
-
+#listPics img{
+  height: 400px;
+}
+.detailImage img{
+  width: 100%;
+}
+@media only screen and (min-width: 860px){
+.detailImage img{
+  width: 100%;
+}
+.postDetail{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+}
 #postFormCard {
   margin: 0 auto;
   /* Added */

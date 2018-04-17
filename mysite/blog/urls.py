@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$',views.PostListView.as_view(),name='post_list'),
     url(r'^about/$',views.AboutView.as_view(),name='about'),
     url(r'^post_list/$',views.PostListView.as_view(),name='post_list'),
+    url(r'^all_posts/$',views.AllPostListView.as_view(),name='all_posts'),
     url(r'^post/(?P<pk>\d+)$',views.PostDetailView.as_view(),name='post_detail'),
     url(r'^post/new/$',staff_member_required(views.CreatePostView.as_view()),name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$',staff_member_required(views.PostUpdateView.as_view()),name='post_edit'),

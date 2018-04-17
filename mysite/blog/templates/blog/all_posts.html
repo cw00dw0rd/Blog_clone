@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<!-- Displays all posts with no restriction on the number to display -->
+<div class="display-4 mt-4"align="center">
+  <p>All Posts</p>
+</div>
+<hr>
+<div class="card m-4 p-2">
+
+<section id="picPosts" class="text-center">
+
+  <div class="row animated fadeInUpBig">
+    {% for post in post_list %}
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+
+      <div class="pics overlay z-depth-1-half">
+        <p class="h3 listHeading"> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </p>
+        <a id="listPics" href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/{{post.image}}" class="img-fluid" alt="Overroasted Image">
+        </a>
+        <div class="date">
+          <p>Published on: {{post.published_date|date:"N d Y"}}</p>
+        </div>
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comment.count }}</a>
+
+      </div>
+  </div>
+  {% endfor %}
+
+</div>
+</section>
+</div>
+{% endblock %}
