@@ -1,0 +1,65 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3 my-3 animated slideInDown">
+
+
+<!-- Card -->
+<div class="card card-cascade">
+  <!--Card image-->
+        <div class="view gradient-card-header blue-gradient">
+            <h2 class="h2-responsive text-center">Sign In</h2>
+        </div>
+        <!--/Card image-->
+
+    <!-- Card body -->
+
+        <!-- Material form register -->
+        <form action="{% url 'login' %}" method="POST" style='width:50%;margin-left:25%; margin-right:-25%;'>
+          <!-- Material input email -->
+            {% csrf_token %}
+
+            <div class="fieldWrapper md-form" >
+              <i class="fa fa-envelope prefix grey-text"></i>
+                {{ form.email.errors }}
+                <label for="{{ form.email.id_for_label }}" style='display:inline-block;margin-top:-5px;' id="materialFormLoginEmailEx">Email:</label>
+                <input id="id_username" name="username"
+                                   type="text" class="form-control">
+                {{ form.email }}
+              </div>
+              <br>
+              <br>
+              <!-- Material input password -->
+              <div class="fieldWrapper md-form">
+
+                  <i class="fa fa-lock prefix grey-text"></i>
+                  {{ form.password.errors }}
+                  <!-- <input type="email" id="materialFormLoginEmailEx" class="form-control"> -->
+                  <label for="{{ form.password.id_for_label }}"style='display:inline-block;margin-top:-5px;'>Password:</label>
+                  {{ form.password }}
+
+                  <div class="card-body">
+                    {% if form.errors %}
+                    <p>Your username and password didn't match! Please try again.</p>
+                    {% endif %}
+              </div>
+              <input type="submit" class='btn btn-brown' value="Login">
+              <input type="hidden" name="next" value="{{next}}">
+
+
+              <!-- <input type="submit" value="Sign Up" class="btn btn-brown"> -->
+
+            <!-- <input type="submit" class="btn btn-outline-brown waves-effect" value="Login"> -->
+        </form>
+        <!-- Material form register -->
+
+    </div>
+    <!-- Card body -->
+
+</div>
+</div>
+
+<!-- Card -->
+
+
+{% endblock %}
