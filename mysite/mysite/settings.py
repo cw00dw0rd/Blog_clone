@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,15 +23,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'mr9yar=eo38db@6%vrwfu)$90=y#=)sh&0*ox67gpl1#hxx)ug'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["192.168.86.77","75.115.98.73",
                 "www.newfangledcoffee.com","newfangledcoffee.com",
                 "127.0.0.1","192.168.86.49"]
+
+# SECURITY warning: keep the secret key used in production secret!
+# SECRET_KEY = 'Your automatically generated key here'
+
 
 # Authorize Customer User Model
 AUTH_USER_MODEL = 'blog.User'
