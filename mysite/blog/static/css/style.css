@@ -63,18 +63,19 @@ html, body,
 }
 
 #intro {
-  background: url("/static/images/bg.jpg")no-repeat center center fixed;
-  -webkit-background: cover;
-  -moz-webkit-background: cover;
-  -o-webkit-background: cover;
-  background: cover;
+  background: url("/static/images/bgsmm.jpg")center no-repeat;
+  -webkit-background-size: cover;
+  -moz-webkit-background-size: cover;
+  -o-webkit-background-size: cover;
+  background-size: cover;
+  background-color: #77574a;
 }
 
 .introdisplay {
   height: auto;
 }
 
-@media only screen and (min-width: 370px) {
+/* @media only screen and (min-width: 370px) {
   #intro .aboutBackText {
     font-size: .9em;
   }
@@ -90,7 +91,7 @@ html, body,
   #intro .aboutBackText h4 {
     font-size: 1.6em;
   }
-}
+}*/
 
 #two {
   scroll-behavior: smooth;
