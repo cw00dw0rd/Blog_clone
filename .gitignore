@@ -1,3 +1,5 @@
 /mysite/settings_secret.py
 
+/mysite/settings_secret.pyc
+
 /mysite/db.sqlite3
