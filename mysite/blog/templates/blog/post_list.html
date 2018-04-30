@@ -62,7 +62,7 @@ $(document).ready(function() {
           <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
             <div class="pics overlay z-depth-1-half">
               <p class="h3 listHeading"> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </p>
-              <a id="listPics" href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/{{post.image}}" class="img-fluid" alt="Overroasted Image">
+              <a id="listPics" href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/thumbs/{{post.image}}" class="img-fluid" alt="Overroasted Image">
               </a>
               <div class="date">
                 <!-- Formatted to show date and not time -->
