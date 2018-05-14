@@ -3,3 +3,5 @@
 /mysite/settings_secret.pyc
 
 /mysite/db.sqlite3
+
+/mysite/__pycache__/

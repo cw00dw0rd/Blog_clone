@@ -15,7 +15,7 @@
 
       <div class="pics overlay z-depth-1-half">
         <p class="h3 listHeading"> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </p>
-        <a id="listPics" href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/{{post.image}}" class="img-fluid" alt="Overroasted Image">
+        <a id="listPics" href="{% url 'post_detail' pk=post.pk %}">   <img src="/static/media/thumbs/{{post.image}}" class="img-fluid" alt="Overroasted Image">
         </a>
         <div class="date">
           <p>Published on: {{post.published_date|date:"N d Y"}}</p>

@@ -6,6 +6,12 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from io import BytesIO
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage as storage
+import os
+from PIL import Image
+
 
 # Override the UserManager to be able to create customer user Model
 class UserManager(BaseUserManager):
@@ -61,7 +67,48 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True,null=True)
     image = models.ImageField(upload_to="images/")
+    thumbnail = models.ImageField(upload_to='thumbs/', editable=False)
 
+
+    def save(self, *args, **kwargs):
+        """
+        Make and save the thumbnail for the photo here.
+        """
+        if not self.make_thumbnail():
+            raise Exception('Could not create thumbnail - is the file type valid?')
+
+        super(Post, self).save(*args, **kwargs)
+
+    def make_thumbnail(self):
+        image = Image.open(self.image)
+        THUMB_SIZE = (400,300)
+        image.thumbnail(THUMB_SIZE, Image.ANTIALIAS)
+
+        thumb_name, thumb_extension = os.path.splitext(self.image.name)
+        thumb_extension = thumb_extension.lower()
+
+        thumb_filename = thumb_name + thumb_extension
+
+        if thumb_extension in ['.jpg', '.jpeg']:
+            FTYPE = 'JPEG'
+        elif thumb_extension == '.gif':
+            FTYPE = 'GIF'
+        elif thumb_extension == '.png':
+            FTYPE = 'PNG'
+        else:
+            return False    # Unrecognized file type
+
+        # Save thumbnail to in-memory file as StringIO
+        temp_thumb = BytesIO()
+        print(temp_thumb)
+        image.save(temp_thumb, FTYPE)
+        temp_thumb.seek(0)
+
+        # set save=False, otherwise it will run in an infinite loop
+        self.thumbnail.save(thumb_filename, ContentFile(temp_thumb.read()), save=False)
+        temp_thumb.close()
+
+        return True
 
     def publish(self):
         self.published_date = timezone.now()
