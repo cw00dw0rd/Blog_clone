@@ -1,5 +1,5 @@
 # Newfangled
-Full Stack Django, Python, HTML, and CSS project for personal **coffee** site.
+Full Stack Django, Python, HTML, JavaScript, and CSS project for personal **coffee** site.
 
 I created this site for myself, because I truly enjoy **coffee**. 
 I was familiar with Python and used that as a jumping off point to explore Full Stack development.
